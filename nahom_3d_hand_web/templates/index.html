@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NAHOM 3D Hand Controller</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <div>
+    <div class="brand">NAHOM</div>
+    <div class="sub">3D HAND CONTROLLER</div>
+  </div>
+  <div id="serverStatus" class="status">PYTHON SERVER: CONNECTING</div>
+</header>
+
+<main>
+  <section class="stage">
+    <canvas id="scene"></canvas>
+    <div class="crosshair"></div>
+    <div class="help">
+      <b>HAND CONTROL</b>
+      <span>Open palm → rotate</span>
+      <span>Move hand → move object</span>
+      <span>Pinch → zoom</span>
+      <span>Fist → pause</span>
+    </div>
+  </section>
+
+  <aside>
+    <div class="panel-title">CAMERA / HAND TRACKING</div>
+    <div class="camera-box">
+      <video id="video" autoplay muted playsinline></video>
+      <canvas id="handCanvas"></canvas>
+      <div id="cameraMessage">CAMERA OFF</div>
+    </div>
+
+    <button id="cameraBtn">ENABLE CAMERA</button>
+    <button id="resetBtn">RESET 3D</button>
+
+    <div class="readout">
+      <div><span>STATUS</span><b id="tracking">WAITING</b></div>
+      <div><span>GESTURE</span><b id="gesture">NONE</b></div>
+      <div><span>HAND X</span><b id="handX">0.50</b></div>
+      <div><span>HAND Y</span><b id="handY">0.50</b></div>
+      <div><span>FPS</span><b id="fps">0</b></div>
+    </div>
+
+    <div class="mouse-note">
+      Camera control is optional. If camera permission is unavailable,
+      use the mouse: drag to rotate and wheel to zoom.
+    </div>
+  </aside>
+</main>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="/static/app.js"></script>
+</body>
+</html>
